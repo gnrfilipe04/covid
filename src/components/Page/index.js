@@ -16,7 +16,6 @@ const Page = () => {
   return (
     <Container>
       <h1>{wordWideData.cases}</h1>
-      <h1>{wordWideData.update}</h1>
      
     </Container>
   );
