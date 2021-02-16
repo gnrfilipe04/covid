@@ -13,7 +13,6 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 body {
-  background: #0B0B0B;
   overflow-x: hidden;
 }
 `
