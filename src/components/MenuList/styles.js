@@ -6,7 +6,7 @@ export const Container = styled.div`
 
   Button {
     text-transform: capitalize;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     margin-right: 2rem;
 
 
