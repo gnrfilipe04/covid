@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import Header from "../Header";
 import TableData from "../TableData";
 import MenuList from "../MenuList";
@@ -7,9 +6,14 @@ import { Wrapper } from "./styles";
 import Paper from "@material-ui/core/Paper";
 
 const Page = () => {
-  const [menuTotal, setMenuTotal] = useState([]);
-  const [countries, setCountries] = useState([]);
+  const [menuTotal, setMenuTotal] = useState([
+    {country: 'Total'},
+    {country: 'Por milhão de pessoas'}
 
+  
+  ]);
+  const [countries, setCountries] = useState([]);
+  countries.splice(0, 0, {country: 'Global', countryInfo: {flag: 'global.png'}})
 
   useEffect(async () => {
     const response = await fetch(
@@ -17,31 +21,25 @@ const Page = () => {
     );
     const data = await response.json();
     setCountries(data);
+
   }, []);
 
-  useEffect(async () => {
-    const response = await fetch(
-      "https://disease.sh/v3/covid-19/all"
-    );
-    const data = await response.json();
-    setMenuTotal(data);
-  }, []);
-
-  const countryName = countries.map(item => item.country)
-  
-
-  console.log(countryName)
+  console.log(menuTotal)
 
   return (
     <Wrapper>
       <Paper elevation={3}>
         <Header />
-        <div>
+        <div style={{display: 'flex'}}>
           <MenuList 
-          countryName={countryName}
-          menuTitle='Global'          
-          />
-        </div>
+            menuTitle='Total'        
+            countries={menuTotal}
+            />
+            <MenuList 
+            menuTitle={'Global' }     
+            countries={countries}   
+            />
+          </div>
         <div>
           <TableData />
         </div>
