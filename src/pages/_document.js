@@ -41,7 +41,6 @@ export default class MyDocument extends Document {
                     <meta name="keywords" content="App para consumir API da NASA"/>
                     <meta name="robots" content="index, nofollow"></meta>
                     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-                    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&display=swap" rel="stylesheet" />
                 
 
                     {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-0NYBD2BTVE" /> */}

@@ -6,9 +6,8 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 import { Container } from "./styles";
 
-const MenuList = ({ countries, menuTitle, countryName, flag }) => {
+const MenuList = ({ countries, menuTitle, setMenuTitle }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [menuButtonValue, setMenuButtonValue] = useState(menuTitle);
 
   const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
@@ -16,29 +15,28 @@ const MenuList = ({ countries, menuTitle, countryName, flag }) => {
 
   const handleClose = (e) => {
     if (e.nativeEvent.target.outerText === "") {
-      setMenuButtonValue(menuButtonValue);
+      setMenuTitle(menuTitle);
       
     } else {
-      setMenuButtonValue(e.nativeEvent.target.outerText)
-      console.log(e.nativeEvent.target.outerText)
+      setMenuTitle(e.nativeEvent.target.outerText)  
     }
-
     setAnchorEl(null);
   };
 
-
   return (
+    
     <Container>
       <Button
         aria-controls="menu-contries"
         aria-haspopup="true"
         onClick={handleClick}
+        onChange={(e) => setMenuTitle(e.nativeEvent.target.outerText)}
       > 
-        {menuButtonValue}
-        <ArrowDropDownIcon />
+        {menuTitle}
+        <ArrowDropDownIcon /> 
       </Button>
-
       {
+       
         <Menu
           id="menu-contries"
           anchorEl={anchorEl}
@@ -47,6 +45,9 @@ const MenuList = ({ countries, menuTitle, countryName, flag }) => {
           onClose={handleClose}
           style={{height: '29rem'}}
         >
+          <MenuItem onClick={handleClose}>
+            <img src="global.png" style={{width: '20px', height: 'auto', marginRight: '5px'}}/>Global
+          </MenuItem>
           {countries.map((country) => (
             <MenuItem onClick={handleClose} key={country.country}>
               <div style={{display: 'flex', alignItems: 'center'}}>

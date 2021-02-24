@@ -10,11 +10,21 @@ const Page = () => {
     {country: 'Total'},
     {country: 'Por milhão de pessoas'}
 
-  
   ]);
   const [countries, setCountries] = useState([]);
-  countries.splice(0, 0, {country: 'Global', countryInfo: {flag: 'global.png'}})
+  const [menuTotalTitle, setMenuTotalTitle] = useState(['Total']);
+  const [menuTitleCountry, setMenuTitleCountry] = useState(['Global']);
 
+  // useEffect(async () => {
+  //   const response = await fetch(
+  //     `https://disease.sh/v3/covid-19/countries/${menuTitleCountry}?strict=true`
+  //   );
+  //   const data = await response.json();
+  //   setCountries(data);
+
+  // }, [countryData]);
+
+  
   useEffect(async () => {
     const response = await fetch(
       "https://disease.sh/v3/covid-19/countries?yesterday=true&twoDaysAgo=true&sort=cases&allowNull=true"
@@ -24,24 +34,27 @@ const Page = () => {
 
   }, []);
 
-  console.log(menuTotal)
-
   return (
     <Wrapper>
       <Paper elevation={3}>
         <Header />
         <div style={{display: 'flex'}}>
           <MenuList 
-            menuTitle='Total'        
+            menuTitle={menuTotalTitle}        
             countries={menuTotal}
+            setMenuTitle={setMenuTotalTitle}  
             />
-            <MenuList 
-            menuTitle={'Global' }     
-            countries={countries}   
-            />
+          <MenuList 
+          menuTitle={menuTitleCountry}     
+          countries={countries}
+          setMenuTitle={setMenuTitleCountry} 
+          />
           </div>
         <div>
-          <TableData />
+          <TableData 
+          countries={countries}
+          menuTitle={menuTitleCountry}
+          />
         </div>
       </Paper>
     </Wrapper>

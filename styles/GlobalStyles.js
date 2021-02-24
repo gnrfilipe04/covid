@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   *, input, button {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
