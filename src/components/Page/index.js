@@ -14,16 +14,6 @@ const Page = () => {
   const [countries, setCountries] = useState([]);
   const [menuTotalTitle, setMenuTotalTitle] = useState(['Total']);
   const [menuTitleCountry, setMenuTitleCountry] = useState(['Global']);
-
-  // useEffect(async () => {
-  //   const response = await fetch(
-  //     `https://disease.sh/v3/covid-19/countries/${menuTitleCountry}?strict=true`
-  //   );
-  //   const data = await response.json();
-  //   setCountries(data);
-
-  // }, [countryData]);
-
   
   useEffect(async () => {
     const response = await fetch(
