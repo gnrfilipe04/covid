@@ -16,45 +16,58 @@ const MenuList = ({ countries, menuTitle, setMenuTitle }) => {
   const handleClose = (e) => {
     if (e.nativeEvent.target.outerText === "") {
       setMenuTitle(menuTitle);
-      
     } else {
-      setMenuTitle(e.nativeEvent.target.outerText)  
+      setMenuTitle(e.nativeEvent.target.outerText);
     }
     setAnchorEl(null);
   };
 
   return (
-    
     <Container>
       <Button
         aria-controls="menu-contries"
         aria-haspopup="true"
         onClick={handleClick}
         onChange={(e) => setMenuTitle(e.nativeEvent.target.outerText)}
-      > 
+      >
         {menuTitle}
-        <ArrowDropDownIcon /> 
+        <ArrowDropDownIcon />
       </Button>
       {
-       
         <Menu
           id="menu-contries"
           anchorEl={anchorEl}
           keepMounted
           open={Boolean(anchorEl)}
           onClose={handleClose}
-          style={{height: '29rem'}}
+          style={{ height: "29rem" }}
         >
-          <MenuItem onClick={handleClose}>
-            <img src="global.png" style={{width: '20px', height: 'auto', marginRight: '5px'}}/>Global
-          </MenuItem>
+          {menuTitle != "Total" ? (
+            <MenuItem onClick={handleClose}>
+              <img
+                src="global.png"
+                style={{ width: "20px", height: "auto", marginRight: "5px" }}
+              />
+              Global
+            </MenuItem>
+          ) : (
+            ""
+          )}
           {countries.map((country) => (
             <MenuItem onClick={handleClose} key={country.country}>
-              <div style={{display: 'flex', alignItems: 'center'}}>
-                { country.countryInfo ?
-                  <img style={{width: '20px', height: 'auto', marginRight: '5px'}} src={country.countryInfo.flag}/>
-                  : ''
-                }
+              <div style={{ display: "flex", alignItems: "center" }}>
+                {country.countryInfo ? (
+                  <img
+                    style={{
+                      width: "20px",
+                      height: "auto",
+                      marginRight: "5px",
+                    }}
+                    src={country.countryInfo.flag}
+                  />
+                ) : (
+                  ""
+                )}
                 {country.country}
               </div>
             </MenuItem>

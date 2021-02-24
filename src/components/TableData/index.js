@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { numberFormat } from '../../util'
 
 import { Container } from './styles';
 
@@ -26,15 +27,15 @@ useEffect(async () => {
     <Container>
       <div>
         <h1>Casos</h1>
-        <h2>{countryData.cases}</h2>  
+        <h2>{numberFormat(countryData.cases)}</h2>  
       </div>
       <div className="line">
         <h1>Recuperados</h1>
-        <h2>{countryData.recovered}</h2>  
+        <h2>{numberFormat(countryData.recovered)}</h2>  
       </div>
       <div className="line">
         <h1>Mortes</h1>
-        <h2>{countryData.deaths}</h2>  
+        <h2>{numberFormat(countryData.deaths)}</h2>  
       </div>
     </Container>
   );
