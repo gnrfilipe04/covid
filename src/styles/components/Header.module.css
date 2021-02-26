@@ -1,0 +1,20 @@
+.container {
+  font-size: 1rem;
+  color: var(--purple);
+
+  border-bottom: 1px solid var(--divisor);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container h1 {
+  padding: 0 0 1rem 0;
+}
+
+.container img {
+  width: 3rem;
+  height: auto;
+  padding: 0 0 1rem 0;
+}

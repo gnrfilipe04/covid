@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --title: #1b1d1a;
+  --background: #f2f3f5;
+  --green: #54ba34;
+  --red: #ea2e2e;
+  --purple: #8c54c4;
+  --divisor: #d1c7db;
+  --white: #fff;
+}
+
+body,
+input,
+textarea,
+button {
+  font: 400 1rem "Inter", sans-serif;
+}

@@ -1,5 +1,8 @@
 import React, { useContext, useEffect } from 'react'
+import { Header } from '../components/Header'
+import { SelectCountry } from '../components/SelectCountry'
 import { RequestContext } from '../context/RequestsContext'
+import styles from '../styles/pages/Home.module.css'
 
 export default function Home() {
   const { 
@@ -30,28 +33,12 @@ export default function Home() {
   console.log(countryData)
 
   return (
-   <>
-    <div>
-      <h1>Cases - {generalWorldData.cases}</h1>
-    </div>
-    <div>
-      <h1>Recovered - {generalWorldData.recovered}</h1>
-    </div>
-    <div>
-      <h1>Deaths - {generalWorldData.deaths}</h1>
-    </div>
-
-    <ul>
-      {countries.map(country => (
-        <li style={{
-          listStyle: 'none',
-          padding: '2rem 0 2rem 0',
-          display: 'flex'
-        }} key={country.country}>{country.country}
-        </li>
-      ))}
-    </ul>
-   </>
+  <div className={styles.container}>
+    <Header />
+    <section>
+      <SelectCountry />
+    </section>
+  </div>
    
   )
 }
