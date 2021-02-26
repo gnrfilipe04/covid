@@ -16,22 +16,18 @@ export default function Home() {
       selectedCountryData
       } = useContext(RequestContext)
   
-  useEffect(() => {
-    worldWideData()
-  }, [])
+  // useEffect(() => {
+  //   worldWideData()
+  // }, [])
 
   useEffect(() => {
     allCountriesData()
   }, [])
 
-  changeCountryName('Brazil')
+  // useEffect(() => {
+  //   selectedCountryData()
+  // }, [countryName])
   
-  useEffect(() => {
-    selectedCountryData()
-  }, [countryName])
-  
-  console.log(countryData)
-
   return (
   <div className={styles.container}>
     <Header />

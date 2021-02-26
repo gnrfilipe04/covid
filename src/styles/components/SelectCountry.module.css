@@ -37,6 +37,9 @@
 .listCountries li {
   margin-bottom: 0.5rem;
   padding: 0.5rem;
+
+  display: flex;
+  align-items: center;
 }
 
 .listCountries li:hover {
