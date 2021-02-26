@@ -7,9 +7,9 @@ import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 export function SelectCountry() {
-  const { countries, changeCountryName } = useContext(RequestContext);
+  const { countries, changeCountryName, countryName } = useContext(RequestContext);
   const [buttonValue, setButtonValue] = useState({
-    buttonTextValue: "Global",
+    buttonTextValue: countryName,
     buttonImgValue: "global.png",
   });
   const [isShowList, setIsShowList] = useState(false);
@@ -46,10 +46,7 @@ export function SelectCountry() {
 
         <div className={styles.listCountries}>
           <ul
-            style={{
-              display: `${!isShowList ? "none" : "inline-block"}`,
-              position: "absolute",
-            }}
+            className={`${isShowList ? styles.show : styles.hide}`}
           >
             <li onClick={() => selectOptionCountry("Global", "global.png")}>
               <img

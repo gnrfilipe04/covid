@@ -34,7 +34,7 @@ interface CountryProviderProps {
 export function RequestProvider({ children }: CountryProviderProps) {
   const [generalWorldData, setGeneralWorldData] = useState({});
   const [countries, setCountries] = useState([]);
-  const [countryName, setCountryName] = useState("Global");
+  const [countryName, setCountryName] = useState('Global');
   const [countryData, setCountryData] = useState({});
 
   function changeCountryName(name: string) {

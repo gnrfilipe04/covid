@@ -9,3 +9,15 @@
 
   background: var(--background);
 }
+
+.data {
+  flex: 1;
+
+  display: grid;
+  grid-template-columns: repeat(1, 2fr 1fr);
+  gap: 1rem;
+}
+
+.ranking {
+  background: chocolate;
+}

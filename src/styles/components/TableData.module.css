@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  justify-items: self-start;
+  align-items: center;
+  padding: 1rem;
+
+  margin-top: 1rem;
+  background: var(--white);
+}
+
+.recovered {
+  border-left: 1px solid var(--divisor);
+  padding-left: 1rem;
+}
+.deaths {
+  border-left: 1px solid var(--divisor);
+  padding-left: 1rem;
+}
+
+.cases p {
+  color: var(--purple-dark);
+}
+
+.recovered p {
+  color: var(--green-dark);
+}
+
+.deaths p {
+  color: var(--red-dark);
+}
+
+.cases h2 {
+  color: var(--purple);
+}
+
+.recovered h2 {
+  color: var(--green);
+}
+
+.deaths h2 {
+  color: var(--red);
+}

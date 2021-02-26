@@ -32,6 +32,17 @@
   overflow-y: auto;
 
   box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.09);
+
+  transition: opacity 0.3s;
+}
+
+.show {
+  display: inline-block;
+  position: absolute;
+}
+
+.hide {
+  display: none;
 }
 
 .listCountries li {
