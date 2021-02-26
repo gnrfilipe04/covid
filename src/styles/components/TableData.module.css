@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   justify-items: self-start;
-  align-items: center;
+  align-items: flex-start;
+  height: 5rem;
   padding: 1rem;
 
   margin-top: 1rem;

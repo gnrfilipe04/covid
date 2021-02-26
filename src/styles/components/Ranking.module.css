@@ -1,0 +1,31 @@
+.container {
+  background: var(--white);
+  padding: 0.5rem;
+}
+
+.container ul {
+  list-style: none;
+  height: 45rem;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.container ul li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid var(--divisor);
+  padding: 1rem;
+}
+
+.container ul li div {
+  display: flex;
+}
+
+.container h2 {
+  font-size: 1rem;
+}
+
+.container p {
+  color: var(--purple-dark);
+}

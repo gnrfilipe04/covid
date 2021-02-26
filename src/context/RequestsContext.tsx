@@ -11,7 +11,7 @@ interface countryPropsView {
   cases?: number;
   recovered?: number;
   deaths?: number;
-  countryInfo?: { _id: number; flag: string };
+  countryInfo?: { _id: number; flag: string, iso3: string };
 }
 
 interface GeneralCountryProps {

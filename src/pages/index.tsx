@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Header } from '../components/Header'
+import { Ranking } from '../components/Ranking'
 import { SelectCountry } from '../components/SelectCountry'
 import { TableData } from '../components/TableData'
 import { RequestContext } from '../context/RequestsContext'
@@ -37,7 +38,7 @@ export default function Home() {
       <section className={styles.data}>
        <TableData />
        <div className={styles.ranking}>
-         RANKING
+         <Ranking />
        </div> 
       </section>
     </section>
