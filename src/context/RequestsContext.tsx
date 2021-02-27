@@ -1,12 +1,12 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 
-interface WorldPropsView {
+export interface WorldPropsView {
   cases?: number;
   recovered?: number;
   deaths?: number;
 }
 
-interface countryPropsView {
+export interface countryPropsView {
   country?: string;
   cases?: number;
   recovered?: number;
@@ -14,7 +14,7 @@ interface countryPropsView {
   countryInfo?: { _id: number; flag: string, iso3: string };
 }
 
-interface GeneralCountryProps {
+export interface GeneralCountryProps {
   generalWorldData: WorldPropsView;
   countries?: Array<countryPropsView>;
   countryName;

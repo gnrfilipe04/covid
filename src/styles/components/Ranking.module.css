@@ -1,6 +1,8 @@
 .container {
   background: var(--white);
   padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 10px -8px rgba(0, 0, 0, 0.5);
 }
 
 .container ul {
@@ -8,6 +10,7 @@
   height: 45rem;
   overflow: hidden;
   overflow-y: scroll;
+  padding-right: 0.5rem;
 }
 
 .container ul li {
@@ -28,4 +31,13 @@
 
 .container p {
   color: var(--purple-dark);
+}
+
+.tableHeader {
+  color: #444;
+}
+
+.tableHeader a {
+  cursor: pointer;
+  user-select: none;
 }

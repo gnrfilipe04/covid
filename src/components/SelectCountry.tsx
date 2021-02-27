@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { RequestContext } from "../context/RequestsContext";
+import { RequestContext, countryPropsView } from "../context/RequestsContext";
 import styles from "../styles/components/SelectCountry.module.css";
 
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
@@ -28,6 +28,10 @@ export function SelectCountry() {
     setIsShowList(false);
   };
 
+  const sortByCountry = (a: countryPropsView, b: countryPropsView): number => {
+    return a.country < b.country ? -1 : 1
+  }
+
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <div className={styles.container} style={{ position: "relative" }}>
@@ -48,35 +52,39 @@ export function SelectCountry() {
           <ul
             className={`${isShowList ? styles.show : styles.hide}`}
           >
-            <li onClick={() => selectOptionCountry("Global", "global.png")}>
-              <img
-                src="global.png"
-                style={{
-                  width: "20px",
-                  height: "auto",
-                  marginRight: "5px",
-                }}
-              />
-              Global
-            </li>
-            {countries.map((country) => (
-              <li
-                onClick={() =>
-                  selectOptionCountry(country.country, country.countryInfo.flag)
-                }
-                key={country.country}
-              >
+            <div>
+              <li onClick={() => selectOptionCountry("Global", "global.png")}>
                 <img
+                  src="global.png"
                   style={{
                     width: "20px",
                     height: "auto",
                     marginRight: "5px",
                   }}
-                  src={country.countryInfo.flag}
                 />
-                {country.country}
+                Global
               </li>
-            ))}
+              {countries
+                .sort(sortByCountry)
+                .map((country) => (
+                <li
+                  onClick={() =>
+                    selectOptionCountry(country.country, country.countryInfo.flag)
+                  }
+                  key={country.country}
+                >
+                  <img
+                    style={{
+                      width: "20px",
+                      height: "auto",
+                      marginRight: "5px",
+                    }}
+                    src={country.countryInfo.flag}
+                  />
+                  {country.country}
+                </li>
+              ))}
+            </div>
           </ul>
         </div>
       </div>

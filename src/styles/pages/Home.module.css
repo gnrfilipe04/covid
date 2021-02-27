@@ -1,6 +1,6 @@
 .container {
   height: 100vh;
-  max-width: 992px;
+  max-width: 1024px;
   margin: 0 auto;
   padding: 2.5rem 2rem;
 
@@ -16,4 +16,6 @@
   display: grid;
   grid-template-columns: repeat(1, 2fr 1fr);
   gap: 1rem;
+
+  margin-top: 1rem;
 }
