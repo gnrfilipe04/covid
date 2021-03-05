@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Projeto em progresso...
 
-## Getting Started
+Este projeto consiste em receber os dados universais do covid-19 providos pela API pública da [disiase.sh](https://disease.sh/),
+e exibilos em tela.
 
-First, run the development server:
+Projeto com deploy feito na Vercel: [covid-lemon.vercel.app](https://covid-lemon.vercel.app/)
+
+# Inicializando o projeto
+
+Primeiramente instale as dependencias do projeto:
+
+```bash
+npm install
+# ou
+yarn install
+```
+
+Para rodar o projeto use o comando no terminal:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
 ```
+# Telas do projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Tela do projeto](public/tela.png) 
+![Tela Lista Aberta](public/tela-lista-aberta.png)
+![Tela Brasil](public/tela-brazil.png)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Tecnologias do projeto
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- ReactJS
+- NextJS
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Workflow do projeto
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [x] Criar os componentes e a estilização com **module.css**
+- [x] Colocar as requisições da API no contexto global do app com **Context API**
+- [x] Exibir menu lista de países
+- [x] Exibir dados globais e do páis selecionado
+- [x] Exibir ranking dos países classificando por numero de casos
+- [ ] Adicionar gráfico ao projeto.
