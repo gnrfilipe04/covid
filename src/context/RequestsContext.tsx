@@ -1,12 +1,12 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 
-export interface WorldPropsView {
+interface WorldPropsView {
   cases?: number;
   recovered?: number;
   deaths?: number;
 }
 
-export interface countryPropsView {
+interface countryPropsView {
   country?: string;
   cases?: number;
   recovered?: number;
@@ -14,15 +14,27 @@ export interface countryPropsView {
   countryInfo?: { _id: number; flag: string, iso3: string };
 }
 
+interface LastThyrtDaysPropsView {
+    cases?: {};
+    deaths?: {};
+    recovered?: {};
+  
+}
+
+
 export interface GeneralCountryProps {
   generalWorldData: WorldPropsView;
   countries?: Array<countryPropsView>;
-  countryName;
+  countryName: string;
   countryData: countryPropsView;
+  lastThyrtDays: LastThyrtDaysPropsView;
+  lastThyrtDaysAll: WorldPropsView;
   worldWideData: () => void;
   allCountriesData: () => void;
   selectedCountryData: () => void;
-  changeCountryName: (name) => void;
+  changeCountryName: (name: string) => void;
+  dataLastThyrtDays: () => void;
+  dataLastThyrtDaysAll: () => void;
 }
 
 export const RequestContext = createContext({} as GeneralCountryProps);
@@ -36,6 +48,8 @@ export function RequestProvider({ children }: CountryProviderProps) {
   const [countries, setCountries] = useState([]);
   const [countryName, setCountryName] = useState('Global');
   const [countryData, setCountryData] = useState({});
+  const [lastThyrtDays, setLastThyrtDays] = useState({});
+  const [lastThyrtDaysAll, setLastThyrtDaysAll] = useState({});
 
   function changeCountryName(name: string) {
     setCountryName(name);
@@ -66,6 +80,24 @@ export function RequestProvider({ children }: CountryProviderProps) {
     setCountryData(data);
   }
 
+  //data from the last thirty days in the country
+  async function dataLastThyrtDays() {
+    const response = await fetch(
+      `https://disease.sh/v3/covid-19/historical/${countryName}?lastdays=30`
+    );
+    const data = await response.json();
+    setLastThyrtDays(data.timeline);
+  }
+
+   //data from the last thirty days in the world
+   async function dataLastThyrtDaysAll() {
+    const response = await fetch(
+      'https://disease.sh/v3/covid-19/historical/all?lastdays=30'
+    );
+    const data = await response.json();
+    setLastThyrtDaysAll(data);
+  }
+
   return (
     <RequestContext.Provider
       value={{
@@ -73,10 +105,14 @@ export function RequestProvider({ children }: CountryProviderProps) {
         countries,
         countryName,
         countryData,
+        lastThyrtDays,
+        lastThyrtDaysAll,
         worldWideData,
         allCountriesData,
         selectedCountryData,
         changeCountryName,
+        dataLastThyrtDays,
+        dataLastThyrtDaysAll
       }}
     >
       {children}

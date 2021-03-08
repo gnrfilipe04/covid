@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react'
+import { Graphic } from '../components/Graphic'
 import { Header } from '../components/Header'
 import { Ranking } from '../components/Ranking'
 import { SelectCountry } from '../components/SelectCountry'
@@ -7,28 +8,11 @@ import { RequestContext } from '../context/RequestsContext'
 import styles from '../styles/pages/Home.module.css'
 
 export default function Home() {
-  const { 
-      generalWorldData, 
-      countries, 
-      worldWideData, 
-      allCountriesData,
-      changeCountryName,
-      countryData,
-      countryName,
-      selectedCountryData
-      } = useContext(RequestContext)
-  
-  // useEffect(() => {
-  //   worldWideData()
-  // }, [])
+  const { allCountriesData } = useContext(RequestContext)
 
   useEffect(() => {
     allCountriesData()
   }, [])
-
-  // useEffect(() => {
-  //   selectedCountryData()
-  // }, [countryName])
   
   return (
   <div className={styles.container}>
@@ -36,7 +20,10 @@ export default function Home() {
     <section>
       <SelectCountry />
       <section className={styles.data}>
-       <TableData />
+        <div>
+        <TableData />
+        <Graphic /> 
+        </div>
        <div className={styles.ranking}>
          <Ranking />
        </div> 

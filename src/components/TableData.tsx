@@ -34,7 +34,8 @@ export function TableData(){
     : countryData.deaths 
 
   return (
-    <div className={styles.container}>
+    <>
+      <div className={styles.container}>
       <div className={styles.cases}>
         <h2>{ toAbbrev(cases) }</h2>
         <p>Casos</p>
@@ -48,5 +49,6 @@ export function TableData(){
         <p>Mortes</p>
       </div>
     </div>
+    </>
   )
 }
