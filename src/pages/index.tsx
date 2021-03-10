@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     allCountriesData()
   }, [])
-  
+
   return (
   <div className={styles.container}>
     <Header />
